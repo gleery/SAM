@@ -28,7 +28,7 @@ def run():
 	os.makedirs(out_path_coupled, exist_ok=True)
 
 	# update test options with options used during training
-	ckpt = torch.load(test_opts.checkpoint_path, map_location='cpu')
+	ckpt = torch.load(test_opts.checkpoint_path, map_location='cuda')
 	opts = ckpt['opts']
 	opts.update(vars(test_opts))
 	opts = Namespace(**opts)
